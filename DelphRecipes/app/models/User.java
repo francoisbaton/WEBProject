@@ -1,5 +1,3 @@
-/*
-
 package models;
  
 import java.util.*;
@@ -20,5 +18,3 @@ public class User extends Model {
     }
  
 }
-
-*/
