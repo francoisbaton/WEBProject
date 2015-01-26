@@ -1,0 +1,238 @@
+# Test data
+
+User(bob):
+    email:          bob@gmail.com
+    password:       secret
+    fullname:       Bob
+    isAdmin:        true
+    
+User(jeff):
+    email:          jeff@gmail.com
+    password:       secret
+    fullname:       Jeff    
+    
+User(paul):
+    email:          paul@gmail.com
+    password:       secret
+    fullname:       Paul    
+    
+Post(firstBobPost):
+    title:          About the model layer
+    postedAt:       2009-06-14
+    author:         bob
+    tags:           
+                    - play
+                    - architecture
+    content:        >
+                    The model has a central position in a Play! application. It is the domain-specific 
+                    representation of the information on which the application operates.
+                     
+                    Martin fowler defines it as :
+                        
+                    Responsible for representing concepts of the business, information about the 
+                    business situation, and business rules. State that reflects the business situation 
+                    is controlled and used here, even though the technical details of storing it are 
+                    delegated to the infrastructure. This layer is the heart of business software.
+
+Post(secondBobPost):
+    title:          Just a test of YABE
+    postedAt:       2009-03-25
+    author:         bob
+    tags:           
+                    - test
+    content:        >
+                    Well, it's just a test.
+                    
+Post(jeffPost):
+    title:          The MVC application
+    postedAt:       2009-06-06
+    author:         jeff
+    tags:           
+                    - play
+                    - architecture
+                    - mvc
+    content:        >
+                    A Play! application follows the MVC architectural pattern as applied to the 
+                    architecture of the Web.
+                     
+                    This pattern splits the application into separate layers: the Presentation 
+                    layer and the Model layer. The Presentation layer is further split into a 
+                    View and a Controller layer.
+                    
+Comment(c1):
+    author:         Guest
+    content:        >
+                    You are right !
+    postedAt:       2009-06-14
+    post:           firstBobPost
+    
+Comment(c2):
+    author:         Mike
+    content:        >
+                    I knew that ...
+    postedAt:       2009-06-15
+    post:           firstBobPost    
+    
+Comment(c3):
+    author:         Tom
+    content:        >
+                    This post is useless ?
+    postedAt:       2009-04-05
+    post:           secondBobPost    
+
+Recette(Pates):
+    title: Pates au beurre
+    author: bob
+    
+    listIng: Sel Poivre
+
+    content: Faire des pates
+    
+    categorie: Plat
+    difficulte: 1
+    prix: Abordable
+
+Recette(Tabasco):
+    title: Tabasco
+    author: bob
+    
+    listIng: Piments
+
+    content: Faire du tabasco
+    
+    categorie: Plat
+    difficulte: 3
+    prix: Moyen
+
+Recette(Gratin):
+    title: Gratin à l'ancienne
+    author: jeff
+    
+    listIng: Patates Sel Poivre
+
+    content: Faire un gratin
+    
+    categorie: Plat
+    difficulte : 2
+    prix: Moyen
+
+Recette(Salade):
+    title: Salade césar
+    author: jeff
+    
+    listIng: Mache Poulet
+
+    content: Faire une salade
+    
+    categorie: Entree
+    difficulte : 1
+    prix: Abordable
+
+Recette(Hamburger):
+    title: Hamburger maison
+    author: paul
+    
+    listIng: Pain Viande Tomate
+
+    content: Faire un Hamburger
+    
+    categorie: Plat
+    difficulte: 2
+    prix: Abordable
+
+Recette(HotDog):
+    title: American Hot Dog
+    author: paul
+    
+    listIng: Saucisse Pain Ketchup
+
+    content: Faire un hot dog
+    
+    categorie: Plat
+    difficulte: 3
+    prix: Abordable
+
+
+Recette(Ramequins):
+    title: Ramequins fondants au chocolat
+    author: jeff
+    
+    listIng: Chocolat Farine Oeuf Lait
+
+    content: Faire des Ramequins
+    
+    categorie: Dessert
+    difficulte: 2
+    prix: Elevé
+
+Recette(tartecitron):
+    title:  La tarte au citron meringuée
+    author: paul
+    
+    listIng: Farine Lait Oeuf citron
+
+    content: Faire une tarte au citron
+    
+    categorie: Dessert
+    difficulte: 1
+    prix: Moyen
+
+Recette(Tiramisu):
+    title: Tiramisu (recette originale)
+    author: paul
+    
+    listIng: Oeuf alcool Creme
+
+    content: Faire un tiramisu
+    
+    categorie: Dessert
+    difficulte: 3
+    prix: Moyen
+
+Recette(BlanquetteVeau):
+    title: Blanquette de veau facile
+    author: paul
+    
+    listIng: Veau Oignon Carotte Sel Poivre
+
+    content: Faire une blanquette
+    
+    categorie: Plat
+    difficulte: 3
+    prix: Elevé
+
+Recette(MousseCourgette):
+    title:  Les timbales de jeanne
+    author: bob
+    
+    listIng: Saumon Courgette Oeuf
+
+    content: Faire une mousse à la courgette et au Saumon
+    
+    categorie: Entree
+    difficulte: 3
+    prix: Elevée
+
+Recette(FiletMignon):
+    title: Filet mignon en croûte
+    author: bob
+    
+    listIng: Filet Migno Croute
+
+    content: Faire une filet mignon en croute
+    
+    categorie: Plat
+    difficulte: 3
+    prix: Elevé
+
+Recette(TarteThonTomate):
+    title: Tarte thon et tomate
+    author: jeff
+    
+    listIng: Pates à tartes Thon Tomate
+
+    content: Faire une tarte thon tomate
+    
+    categorie: Entree
+    difficulte: 1
+    prix: Moyen

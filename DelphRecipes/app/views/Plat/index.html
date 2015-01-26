@@ -14,11 +14,13 @@
             </div>
     </div>
 
+#{/if}
+
     #{if olderRecettes}
 
         <div class="panel panel-warning col-lg-8">
             <div class="panel-heading col-lg-12">
-                <h3 class="panel-title"><center>Les 5 dernières recettes consultées</center></h3>
+                <h3 class="panel-title"><center>Nos recettes de Plats</center></h3>
             </div>
             <div class="panel-body">
                 <br/>
@@ -29,7 +31,7 @@
                             <div class="panel-heading">
                                 <h3 type="button" class="panel-title" data-toggle="collapse" data-target=#${oldRecette.title}>${oldRecette.title}</h3> par ${oldRecette.author.fullname}
                             </div>
-                            <div class="panel-body collapse out" id=${oldRecette.title}>
+                           <div class="panel-body collapse out" id=${oldRecette.title}>
                                 <ul>
                                     <li>Ingrédients : ${oldRecette.listIng}</li>
                                     <li>Catégorie :  ${oldRecette.categorie}</li>
@@ -61,8 +63,6 @@
             </div>
         </div>
     #{/if}
-
-#{/if}
 
  
 #{else}
