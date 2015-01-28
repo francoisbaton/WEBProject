@@ -8,6 +8,7 @@
         <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
         <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/bootstrap.css'}" />
         <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/carroussel.css'}" />
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}" />
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
         
         #{get 'moreStyles' /}
@@ -37,44 +38,46 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Delphine Recipes (Image ?)</a>
+                 <img src="@{'/public/images/delph2alpha.png'}" alt="">
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="@{Application.index()}">Accueil <span class="sr-only">(current)</span></a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nos Recettes <span class="caret"></span></a>
+                    <li><br> <a class="btn-lg" href="@{Application.index()}">Accueil <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown"><br>
+                        <a class="btn-lg" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nos Recettes <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="@{Entree.index()}">Entrée</a></li>
                                 <li><a href="@{Plat.index()}">Plat</a></li>
                                 <li><a href="@{Dessert.index()}">Dessert</a></li>
                             </ul>
                     </li>
-                    <li><a href="@{About.index()}">A propos</a></li>
+                    <li><br><a class="btn-lg" href="@{About.index()}">A propos</a></li>
                 </ul>
     
       
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
+                    <li><br>
 
-                        <!--<form action="@{Search.index()}" method="post" class="navbar-form navbar-left" role="search">-->
-                        <div class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Recette, Catégorie" id="content">
+                        <!--<form action="@{Search.index(name)}" method="post" class="navbar-form navbar-left" role="search">-->
+                            #{form @Application.searchRecipe(content)}
+                            <div class="navbar-form navbar-left" role="search">
+                                <div class="form-group">
+                                    <input name="name" type="text" class="form-control" placeholder="Recette, Catégorie">
+                                </div>
+                                <input type="submit" class="btn btn-default" value="Rechercher" />
                             </div>
-                            <button type="submit" class="btn btn-default">Rechercher</button>
-                        </div>
-                        <!--</form>-->
+                            #{/form}
+                        
                     </li>
-                    <li><a href="#">Se connecter</a></li>
-                    <li><a href="/admin">S'inscrire</a></li>
+                    <li><br><a class="btn-lg" href="#">Se connecter</a></li>
+                    <li><br><a class="btn-lg" href="/admin">S'inscrire</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
         </nav>
-    </div>
+
 
     <div id="myCarousel" class="carousel slide">
       <div class="carousel-inner">
@@ -98,6 +101,8 @@
       <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div><!-- /.carousel -->
+    </div>
+
     
     <body>
         #{doLayout /}

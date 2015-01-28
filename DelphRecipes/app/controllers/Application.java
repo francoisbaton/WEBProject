@@ -24,7 +24,7 @@ public class Application extends Controller {
         Recette frontRecette = Recette.find("select distinct r from Recette r where r.id = ?", indice).first();
         
         List<Recette> olderRecettes = Recette.find(
-            "order by title desc").from(0).fetch(5);
+            "select distinct r from Recette r").from(0).fetch(5);
         render(frontRecette,olderRecettes);
     }
 
@@ -35,14 +35,20 @@ public class Application extends Controller {
 
 
     public static void postComment(Long recId, String author, String content) {
-    	/*Post post = Post.findById(postId);
-    	post.addComment(author, content);
-    	show(postId);*/
-
     	Recette currentRec = Recette.findById(recId);
     	currentRec.addComment(author,content);
     	//render(recId);
         Details.index(recId);
 	}
+
+    public static void searchRecipe(String name){
+        String query = "select distinct r from Recette r where r.categorie LIKE '%";
+        query += name;
+        query +="%' OR r.title LIKE '%";
+        query += name;
+        query += "%'";
+        List<Recette> res = Recette.find(query).fetch();
+        render("Search/index.html",res);
+    }
 
 }

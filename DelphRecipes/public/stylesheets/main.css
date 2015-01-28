@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'BrotherHood'; /*a name to be used later*/
+    src: url('/public/fonts/Brotherhood_Script.ttf'); /*URL to font*/
+}
+
+.calig {
+    font-family: 'BrotherHood';
+    font-size: 200%;
+}
+
+.calig-title {
+    font-family: 'BrotherHood';
+    font-size: 300%;
+}
