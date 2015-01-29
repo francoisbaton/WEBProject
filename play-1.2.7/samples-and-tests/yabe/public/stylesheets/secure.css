@@ -27,11 +27,33 @@ html, body {
     margin: 3px;
 }
 
+#inscrire {
+    width: 500px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+#inscrire h1 {
+    font-weight: bold;
+    color: #111;
+}
+
+#inscrire form {
+    border: 10px solid #ccc;
+    background: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+#inscrire form p {
+    margin: 3px;
+}
+
 #username-field {
     margin-top: 10px !important;
 }
 
-#username-field label, #password-field label {
+#username-field label, #password-field label, #fullname-field label {
     display: block;
     width: 150px;
     float: left;
@@ -41,7 +63,7 @@ html, body {
     font-size: 15px;
 }
 
-#username-field input {
+#username-field input, #fullname-field input{
     width: 200px;
     font-size: 13px;
 }
@@ -78,5 +100,21 @@ html, body {
 }
 
 #login .success {
+    background: #008800 !important;
+}
+
+#inscrire .error, #inscrire .success  {
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+#inscrire .error {
+    background: #c00 !important;
+}
+
+#inscrire .success {
     background: #008800 !important;
 }

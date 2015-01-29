@@ -8,7 +8,7 @@ import java.util.*;
  
 import models.*;
  
-//@With(Secure.class)
+@With(Secure.class)
 public class Admin extends Controller {
     
     @Before
@@ -18,11 +18,21 @@ public class Admin extends Controller {
             renderArgs.put("user", user.fullname);
         }
     }
- 
+	
     public static void index() {
-        List<Post> posts = Post.find("author.email", Security.connected()).fetch();
-        render(posts);
+        Recette frontRecette = Recette.find("order by title").first();
+        List<Recette> olderRecettes = Recette.find(
+            "order by title desc").from(0).fetch(5);
+		String usermail = Security.connected();
+		User currentUser = User.findByEmail(usermail);
+        render(frontRecette,olderRecettes,currentUser);
     }
+	 
+	public static void indexMesRecettes() {
+		String user = Security.connected();
+		List<Post> posts = Post.find("author.email", user).fetch();
+		render(posts);
+	}
     
     public static void form(Long id) {
         if(id != null) {
@@ -31,7 +41,7 @@ public class Admin extends Controller {
         }
         render();
     }
-    
+    /*
     public static void save(Long id, String title, String content, String tags) {
         Post post;
         if(id == null) {
@@ -60,5 +70,5 @@ public class Admin extends Controller {
         post.save();
         index();
     }
-    
+    */
 }

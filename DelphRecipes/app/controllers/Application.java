@@ -2,16 +2,12 @@ package controllers;
 
 import play.*;
 import play.mvc.*;
-
 import java.util.*;
-
 import models.*;
 
-public class Application extends Controller {
 
-    /*public static void index() {
-        render();
-    }*/
+
+public class Application extends Controller {
 
     public static void index() {
         Recette frontRecette = Recette.find("order by title").first();
@@ -21,3 +17,4 @@ public class Application extends Controller {
     }
 
 }
+	

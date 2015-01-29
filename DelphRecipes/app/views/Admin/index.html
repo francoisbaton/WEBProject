@@ -1,13 +1,71 @@
 #{extends 'admin.html' /}
 
-<h3>Welcome ${user}, <span>you have written ${posts.size() ?: 'no'} ${posts.pluralize('post', 'posts')} so far</span></h3>
+#{if frontRecette}
 
-#{list items:posts, as:'post'}
-    <p class="post ${post_parity}">
-        <a href="@{form(post.id)}">${post.title}</a>
-    </p>
-#{/list}
+    <div class="panel panel-warning col-lg-2">
+            <div class="panel-heading col-lg-12">
+                Recette du moment
+            </div>
+            <div class="panel-body">
+                <h3 class="recette-title">
+                    <a href="#">${frontRecette.title}</a>
+                </h3>
+            </div>
+    </div>
 
-<p id="newPost" >
-    <a href="@{form()}"><span>+</span> write a new post</a>
-</p>
+    #{if olderRecettes}
+
+        <div class="panel panel-warning col-lg-8">
+            <div class="panel-heading col-lg-12">
+                <h3 class="panel-title"><center>Les 5 dernières recettes consultées</center></h3>
+            </div>
+            <div class="panel-body">
+                <br/>
+                #{list items:olderRecettes, as:'oldRecette'}
+                
+                    <div class="recette">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 type="button" class="panel-title" data-toggle="collapse" data-target=#${oldRecette.title}>${oldRecette.title}</h3> par ${oldRecette.author.fullname}
+                            </div>
+                            <div class="panel-body collapse out" id=${oldRecette.title}>
+                                <ul>
+                                    <li>Ingrédients : ${oldRecette.listIng}</li>
+                                    <li>Catégorie :  ${oldRecette.categorie}</li>
+                                    <li>Difficulte : 
+                                        #{if oldRecette.difficulte == 1}
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                        #{/if}
+                                        #{elseif oldRecette.difficulte == 2}
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                        #{/elseif}
+                                        #{elseif oldRecette.difficulte == 3}
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                        #{/elseif}
+                                        #{else}
+                                        #{/else}
+                                    </li>
+                                    <li>Recette : ${oldRecette.content.nl2br()} </li>
+                                    <li>Prix : ${oldRecette.prix} </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+                #{/list}
+                
+            </div>
+        </div>
+    #{/if}
+
+#{/if}
+
+ 
+#{else}
+    <div class="empty">
+        There is currently nothing to read here.
+    </div>
+#{/else}

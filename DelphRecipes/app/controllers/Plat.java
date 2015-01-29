@@ -7,6 +7,7 @@ import java.util.*;
 
 import models.*;
 
+
 public class Plat extends Controller {
 
     /*public static void index() {
