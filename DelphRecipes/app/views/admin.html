@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+		#{if currentUser}
+        <title>Page de ${currentUser.fullname}</title>
+        #{/if}
+		#{else}
+		<title>Page de anonyme</title>
+		#{/else}
+		<meta charset="${_response_encoding}">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
+        <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/bootstrap.css'}" />
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+        
+        #{get 'moreStyles' /}
+        <script src="@{'/public/javascripts/jquery-1.11.2.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        #{get 'moreScripts' /}    
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="@{'/public/javascripts/bootstrap.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+        <script src="@{'/public/javascripts/bootstrap.min.js'}" type="text/javascript" charset="${_response_encoding}"></script>
+
+    </head>
+    <div id="header">
+        <nav class="navbar navbar-default">
+        <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Delphine Recipes (Image ?)</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="@{Application.index()}">Accueil <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Nos Recettes <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="@{Entree.index()}">Entrée</a></li>
+                                <li><a href="@{Plat.index()}">Plat</a></li>
+                                <li><a href="@{Dessert.index()}">Dessert</a></li>
+                            </ul>
+                    </li>
+					<li><a href="@{Admin.indexMesRecettes()}">Mes recettes</a></li>
+                    <li><a href="@{AboutAdmin.index()}">A propos</a></li>
+                </ul>
+    
+      
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+
+                        <!--<form action="@{Search.index()}" method="post" class="navbar-form navbar-left" role="search">-->
+                        <div class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Recette, Catégorie" id="content">
+                            </div>
+                            <button type="submit" class="btn btn-default">Rechercher</button>
+                        </div>
+                        <!--</form>-->
+                    </li>
+					<li><a>Bonjour ${currentUser.fullname}!</a></li>
+                    <li><a href="@{Secure.logout()}">Se déconnecter</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+    
+    <body>
+        #{doLayout /}
+    </body>
+</html>
