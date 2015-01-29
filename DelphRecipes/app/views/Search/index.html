@@ -2,10 +2,52 @@
 #{set title:'Home' /}
  
 
- Salut nounou !
- {if content}
- 	{content}
- {/if}
- {else}
- Ya pas !
- {/else}
+  #{if res}
+ 	<div class="panel panel-warning col-lg-8">
+            <div class="panel-heading col-lg-12">
+                <h3 class="panel-title"><center>Résultats de la recherche</center></h3>
+            </div>
+            <div class="panel-body">
+                <br/>
+                #{list items:res, as:'recipe'}
+                
+                    <div class="recette">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 role="presentation" class="panel-title calig-title" data-toggle="collapse" data-target=#${recipe.title}>${recipe.title}</h3> par ${recipe.author.fullname}
+                            </div>
+                            <div class="panel-body collapse out" id=${recipe.title}>
+                                <ul>                                
+                                    <li>Difficulte : 
+                                        #{if recipe.difficulte == 1}
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                        #{/if}
+                                        #{elseif recipe.difficulte == 2}
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                        #{/elseif}
+                                        #{elseif recipe.difficulte == 3}
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                        #{/elseif}
+                                        #{else}
+                                        #{/else}
+                                    </li>
+                                    <li>Prix : ${recipe.prix} </li>
+                                    <li>Temps de préparation : ${recipe.preparation} min</li>
+                                    <li>Temps de cuisson : ${recipe.cuisson} min</li>
+                                    <li><a href="@{Details.index(recipe.id)}">Voir la recette plus en details</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+                #{/list}
+                
+            </div>
+        </div>
+ #{/if}
+ #{else}
+ 	Test KO
+ #{/else}

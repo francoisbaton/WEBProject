@@ -20,7 +20,7 @@
 
         <div class="panel panel-warning col-lg-8">
             <div class="panel-heading col-lg-12">
-                <h3 class="panel-title"><center>Nos recettes de Plats</center></h3>
+                <h3 class="panel-title"><center>Les 5 dernières recettes consultées</center></h3>
             </div>
             <div class="panel-body">
                 <br/>
@@ -31,10 +31,8 @@
                             <div class="panel-heading">
                                 <h3 type="button" class="panel-title" data-toggle="collapse" data-target=#${oldRecette.title}>${oldRecette.title}</h3> par ${oldRecette.author.fullname}
                             </div>
-                           <div class="panel-body collapse out" id=${oldRecette.title}>
-                                <ul>
-                                    <li>Ingrédients : ${oldRecette.listIng}</li>
-                                    <li>Catégorie :  ${oldRecette.categorie}</li>
+                            <div class="panel-body collapse out" id=${oldRecette.title}>
+                                <ul>                                
                                     <li>Difficulte : 
                                         #{if oldRecette.difficulte == 1}
                                             <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
@@ -51,8 +49,10 @@
                                         #{else}
                                         #{/else}
                                     </li>
-                                    <li>Recette : ${oldRecette.content.nl2br()} </li>
                                     <li>Prix : ${oldRecette.prix} </li>
+                                    <li>Temps de préparation : ${oldRecette.preparation} min</li>
+                                    <li>Temps de cuisson : ${oldRecette.cuisson} min</li>
+                                    <li><a href="@{Details.index(oldRecette.id)}">Voir la recette plus en details</a></li>
                                 </ul>
                             </div>
                         </div>

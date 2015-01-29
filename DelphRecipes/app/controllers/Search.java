@@ -13,12 +13,16 @@ public class Search extends Controller {
         render();
     }*/
 
-    public static void index() {
+    /*public static void index() {
         render();
-    }
+    }*/
 
      public static void index(String content) {
-        render(content);
+
+        //render(content);
+        String contentOut = content;
+
+        render(contentOut);
     }
 
 }
