@@ -5,7 +5,9 @@ import javax.persistence.*;
  
 import play.db.jpa.*;
 import play.data.validation.*;
- 
+
+import play.models.*;
+
 @Entity
 public class User extends Model {
 	
@@ -31,4 +33,5 @@ public class User extends Model {
 	public static User findByEmail(String email) {
         return ((User) find("byEmail", email).first());   
     }
+
 }

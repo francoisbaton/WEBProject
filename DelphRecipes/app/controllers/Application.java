@@ -48,4 +48,25 @@ public class Application extends Controller {
         render("Search/index.html",res);
     }
 
+        public static void subscribe(String login, String pwd, String pwd2,String email){
+        if( pwd.equals(pwd)){
+
+            String queryAlready = "select distinct u from User where u.email =";
+            queryAlready += email;
+            List<User> getUser = User.find(queryAlready).fetch();
+            if(getUser.size() == 0){
+
+                User newUser = new User(email,pwd,login);
+                newUser.save();
+
+            }else{
+                //L'utilisateur existe déjà
+                Error.index("Error : User already existe");
+            }
+        }else{
+            //Confirmation incorrecte
+            Error.index("Error : Mot de passe incorrect");
+        }
+    }
+
 }

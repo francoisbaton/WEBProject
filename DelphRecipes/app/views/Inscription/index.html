@@ -1,40 +1,35 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+#{extends 'main.html' /}
+#{set title:'Home' /}
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <title>S'inscrire</title>		
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheets/secure.css" />
-    </head>
-    <body>
-        
-<div id="inscrire">
-	
-	<h1></h1>
-		
-	<form action="/secure/authenticate" method="post" accept-charset="utf-8" enctype="application/x-www-form-urlencoded" ><input type="hidden" name="authenticityToken" value="59ba473c1d960874aabb047ee9d5ba976927a16e">
-		
-					
-		<p id="username-field">
-			<label for="username">Email:</label>
-			<input type="text" name="username" id="username" value="" />
-		</p>
-		<p id="password-field">
-			<label for="password">Password:</label>
-			<input type="password" name="password" id="password" value="" />
-		</p>
-		<p id="fullname-field">
-			<label for="fullname">Fullname:</label>
-			<input type="text" name="fullname" id="fullname" value="" />
-		</p>
-		<p id="remember-field">
-			<input type="checkbox" name="remember" id="remember" value="true"  />
-			<label for="remember">Remember me</label>
-		</p>
-		<p id="signin-field">
-			<input type="submit" id="signup" value="S'inscrire" />
-		</p>
-	
-</form></div> 
-    </body>
-</html>
+<div class="panel panel-warning col-lg-offset-2 col-lg-8">
+  <div class="panel-heading">
+    <h3 class="panel-title"><center>Inscription</center></h3>
+  </div>
+  <div class="panel-body">
+      
+#{form @Application.subscribe()}
+      <br>
+   		<div class="input-group input-group-lg">
+  			<span class="input-group-addon" id="sizing-addon2">Login</span>
+  			<input type="text" class="form-control" placeholder="login" name="login" aria-describedby="sizing-addon2">
+		</div>
+		<br>
+		<div class="input-group input-group-lg">
+  			<span class="input-group-addon" id="sizing-addon2">Mot de passe</span>
+  			<input type="password" class="form-control" placeholder="password" name="pwd" aria-describedby="sizing-addon2">
+		</div>
+		<br>
+		<div class="input-group input-group-lg">
+  			<span class="input-group-addon" id="sizing-addon2">Confirmation du mot de passe</span>
+  			<input type="password" class="form-control" placeholder="password2" name="pwd2" aria-describedby="sizing-addon2">
+		</div>
+		<br>
+		<div class="input-group input-group-lg">
+  			<span class="input-group-addon" id="sizing-addon2">Email</span>
+  			<input type="text" class="form-control" placeholder="email" name="email" aria-describedby="sizing-addon2">
+		</div>
+		<br>	
+    <center><input type="submit" value="S'inscrire" /></center>
+#{/form}
+  </div>
+</div>

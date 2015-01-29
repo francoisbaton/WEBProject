@@ -1,25 +1,11 @@
 #{extends 'admin.html' /}
- 
-#{if frontRecette}
-<div class="container col-lg-12" name="recipes" id="recipes" background="@{'/public/images/delphlogo.png'}">
-    <div class="row">
-    <div class="panel panel-warning col-lg-2">
-            <div class="panel-heading col-lg-12">
-                Recette aléatoire
-            </div>
-            <div class="panel-body">
-                <h3 class="recette-title">
-                    <a class="calig" href="@{Details.index(frontRecette.id)}">${frontRecette.title}</a>
-                </h3>
-            </div>
-    </div>
+
+
 
     #{if olderRecettes}
 
         <div class="panel panel-warning col-lg-8">
-            <div class="panel-heading col-lg-12">
-                <h3 class="panel-title"><center>Les 5 dernières recettes consultées</center></h3>
-            </div>
+            
             <div class="panel-body">
                 <br/>
                 #{list items:olderRecettes, as:'oldRecette'}
@@ -57,13 +43,14 @@
                     </div>
                 
                 #{/list}
-                
+				<button type="button" align="right" class="btn btn-default">Poster une nouvelle recette</button>
+				
             </div>
+
         </div>
     #{/if}
     </div>
-</div>
-#{/if}
+
 
 #{else}
     <div class="empty">
