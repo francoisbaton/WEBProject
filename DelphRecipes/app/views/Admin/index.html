@@ -1,14 +1,15 @@
 #{extends 'admin.html' /}
-
+ 
 #{if frontRecette}
-
+<div class="container col-lg-12" name="recipes" id="recipes" background="@{'/public/images/delphlogo.png'}">
+    <div class="row">
     <div class="panel panel-warning col-lg-2">
             <div class="panel-heading col-lg-12">
-                Recette du moment
+                Recette aléatoire
             </div>
             <div class="panel-body">
                 <h3 class="recette-title">
-                    <a href="#">${frontRecette.title}</a>
+                    <a class="calig" href="@{Details.index(frontRecette.id)}">${frontRecette.title}</a>
                 </h3>
             </div>
     </div>
@@ -26,12 +27,10 @@
                     <div class="recette">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 type="button" class="panel-title" data-toggle="collapse" data-target=#${oldRecette.title}>${oldRecette.title}</h3> par ${oldRecette.author.fullname}
+                                <h3 type="button" class="panel-title calig-title" data-toggle="collapse" data-target=#${oldRecette.title}>${oldRecette.title}</h3> par ${oldRecette.author.fullname}
                             </div>
                             <div class="panel-body collapse out" id=${oldRecette.title}>
-                                <ul>
-                                    <li>Ingrédients : ${oldRecette.listIng}</li>
-                                    <li>Catégorie :  ${oldRecette.categorie}</li>
+                                <ul>                                
                                     <li>Difficulte : 
                                         #{if oldRecette.difficulte == 1}
                                             <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
@@ -48,8 +47,10 @@
                                         #{else}
                                         #{/else}
                                     </li>
-                                    <li>Recette : ${oldRecette.content.nl2br()} </li>
                                     <li>Prix : ${oldRecette.prix} </li>
+                                    <li>Temps de préparation : ${oldRecette.preparation} min</li>
+                                    <li>Temps de cuisson : ${oldRecette.cuisson} min</li>
+                                    <li><a href="@{Details.index(oldRecette.id)}">Voir la recette plus en details</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -60,10 +61,10 @@
             </div>
         </div>
     #{/if}
-
+    </div>
+</div>
 #{/if}
 
- 
 #{else}
     <div class="empty">
         There is currently nothing to read here.
