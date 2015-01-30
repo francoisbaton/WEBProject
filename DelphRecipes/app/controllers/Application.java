@@ -51,7 +51,7 @@ public class Application extends Controller {
         public static void subscribe(String login, String pwd, String pwd2,String email){
             User newUser = new User(email,pwd,login);
         
-        if( pwd.equals(pwd)){
+        if( pwd.equals(pwd) ){
 
             String queryAlready = "select distinct u from User";
             //queryAlready += email;

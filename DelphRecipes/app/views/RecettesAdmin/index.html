@@ -3,8 +3,9 @@
 
 
     #{if olderRecettes}
-
-        <div class="panel panel-warning col-lg-8">
+    <div class="container">
+        <div class="row">
+        <div class="panel panel-warning col-lg-offset-2 col-lg-8">
             
             <div class="panel-body">
                 <br/>
@@ -43,11 +44,56 @@
                     </div>
                 
                 #{/list}
-				<button type="button" align="right" class="btn btn-default">Poster une nouvelle recette</button>
+
+				<button type="button" align="right" class="btn btn-default" data-toggle="collapse" data-target="#newRecipe">Poster une nouvelle recette</button>
+
+
+                <div class="collapse out" name="newRecipe" id="newRecipe">
+                <h3>Votre nouvelle recette</h3>
+                #{form @Admin.postRecipe(user.email)}
+                    <p>
+                        <label for="title">Votre titre de recette: </label>
+                        <input type="text" name="title" id="title" />
+                    </p>
+                     <p>
+                        <label for="listIng">Votre liste d'ingrédients: </label>
+                        <input type="text" name="listIng" id="listIng" />
+                    </p>
+                    <p>
+                        <label for="content">Votre recette: </label>
+                        <textarea name="content" id="content"></textarea>
+                    </p>
+                     <p>
+                        <label for="categorie">Votre catégorie: </label>
+                        <input type="text" name="categorie" id="categorie" />
+                    </p>
+                     <p>
+                        <label for="difficulte">Votre difficulté: </label>
+                        <input type="text" name="difficulte" id="difficulte" />
+                    </p>
+                     <p>
+                        <label for="prix">Votre prix: </label>
+                        <input type="text" name="prix" id="prix" />
+                    </p>
+                     <p>
+                        <label for="preparation">Votre temps de préparation: </label>
+                        <input type="text" name="preparation" id="preparation" />
+                    </p>
+                     <p>
+                        <label for="cuisson">Votre temps de cuisson: </label>
+                        <input type="text" name="cuisson" id="cuisson" />
+                    </p>
+                    <p>
+                        <input type="submit" value="Envoyer" />
+                    </p>
+                #{/form}
+                </div>
 				
             </div>
 
         </div>
+    </div>
+    </div>
     #{/if}
     </div>
 

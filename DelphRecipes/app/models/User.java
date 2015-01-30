@@ -10,12 +10,12 @@ import play.models.*;
 
 @Entity
 public class User extends Model {
-	
-	@Email
+    
+    @Email
     @Required
     public String email;
-	
-	@Required
+    
+    @Required
     public String password;
     public String fullname;
     public boolean isAdmin;
@@ -26,12 +26,24 @@ public class User extends Model {
         this.fullname = fullname;
     }
  
-	public static User connect(String email, String password) {
+    public static User connect(String email, String password) {
         return find("byEmailAndPassword", email, password).first();
     }
-	
-	public static User findByEmail(String email) {
-        return ((User) find("byEmail", email).first());   
+    
+    public static User findByEmail(String email) {
+        return ((User) find("byEmail", email).first());
     }
 
+
+
+    public User addRecipe(String title, String ingredients, String content, int diff, String prix,
+     int preparation, int cuisson) {
+        Recette newRecipe = new Recette(title,this, ingredients, content,diff,prix,preparation,cuisson).save();
+        //this.comments.add(newRecipe);
+        this.save();
+        return this;
+    }
+
+
 }
+
