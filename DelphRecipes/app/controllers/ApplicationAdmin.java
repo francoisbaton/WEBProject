@@ -34,6 +34,8 @@ public class ApplicationAdmin extends Controller {
         query += name;
         query += "%'";
         List<Recette> res = Recette.find(query).fetch();
-        render("SearchAdmin/index.html",res);
+		String usermail = Security.connected();
+		User currentUser = User.findByEmail(usermail);
+        render("SearchAdmin/index.html",res,currentUser);
     }
 }
