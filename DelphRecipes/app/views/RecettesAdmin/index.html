@@ -2,12 +2,14 @@
 
 
 
-    #{if olderRecettes}
     <div class="container">
         <div class="row">
         <div class="panel panel-warning col-lg-offset-2 col-lg-8">
-            
+            <div class="panel-heading col-lg-12">
+                <h3 class="panel-title calig"><center>Vos recettes</center></h3>
+            </div>
             <div class="panel-body">
+                #{if olderRecettes}
                 <br/>
                 #{list items:olderRecettes, as:'oldRecette'}
                 
@@ -44,13 +46,14 @@
                     </div>
                 
                 #{/list}
+            #{/if}
 
-				<button type="button" align="right" class="btn btn-default" data-toggle="collapse" data-target="#newRecipe">Poster une nouvelle recette</button>
+                <button type="button" align="right" class="btn btn-default" data-toggle="collapse" data-target="#newRecipe">Poster une nouvelle recette</button>
 
 
                 <div class="collapse out" name="newRecipe" id="newRecipe">
-                <h3>Votre nouvelle recette</h3>
-                #{form @Admin.postRecipe(user.email)}
+                    <h3>Votre nouvelle recette</h3>
+                    #{form @Admin.postRecipe(user.email)}
                     <p>
                         <label for="title">Votre titre de recette: </label>
                         <input type="text" name="title" id="title" />
@@ -94,20 +97,12 @@
                     <p>
                         <input type="submit" value="Envoyer" />
                     </p>
-                #{/form}
+                    #{/form}
                 </div>
-				
+                
             </div>
 
         </div>
     </div>
     </div>
-    #{/if}
     </div>
-
-
-#{else}
-    <div class="empty">
-        There is currently nothing to read here.
-    </div>
-#{/else}
