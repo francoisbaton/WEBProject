@@ -38,4 +38,11 @@ public class ApplicationAdmin extends Controller {
 		User currentUser = User.findByEmail(usermail);
         render("SearchAdmin/index.html",res,currentUser);
     }
+	
+	public static void postComment(Long recId, String author, String content) {
+    	Recette currentRec = Recette.findById(recId);
+    	currentRec.addComment(author,content);
+    	//render(recId);
+        DetailsAdmin.index(recId);
+	}
 }

@@ -55,7 +55,7 @@
             <div class="collapse out" name="postCom" id="postCom">
                 <h3>Poster un commentaire</h3>
 
-                #{form @Application.postComment(currentRecipe.id)}
+                #{form @ApplicationAdmin.postComment(currentRecipe.id)}
                     <p>
                         <label for="author">Votre nom: </label>
                         <input type="text" name="author" id="author" />
