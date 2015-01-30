@@ -65,11 +65,19 @@
                     </p>
                      <p>
                         <label for="categorie">Votre catégorie: </label>
-                        <input type="text" name="categorie" id="categorie" />
+                         <select name="difficulte" id="difficulte" size="1">
+                            <option>Entree
+                            <option>Plat
+                            <option>Dessert
+                        </select>
                     </p>
                      <p>
                         <label for="difficulte">Votre difficulté: </label>
-                        <input type="text" name="difficulte" id="difficulte" />
+                        <select type="number" name="difficulte" id="difficulte" size="1">
+                            <option>1
+                            <option>2
+                            <option>3
+                        </select>
                     </p>
                      <p>
                         <label for="prix">Votre prix: </label>
@@ -77,11 +85,11 @@
                     </p>
                      <p>
                         <label for="preparation">Votre temps de préparation: </label>
-                        <input type="text" name="preparation" id="preparation" />
+                        <input type="number" name="preparation" id="preparation" />
                     </p>
                      <p>
                         <label for="cuisson">Votre temps de cuisson: </label>
-                        <input type="text" name="cuisson" id="cuisson" />
+                        <input type="number" name="cuisson" id="cuisson" />
                     </p>
                     <p>
                         <input type="submit" value="Envoyer" />
