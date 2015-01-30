@@ -49,23 +49,25 @@ public class Application extends Controller {
     }
 
         public static void subscribe(String login, String pwd, String pwd2,String email){
+            User newUser = new User(email,pwd,login);
+        
         if( pwd.equals(pwd)){
 
-            String queryAlready = "select distinct u from User where u.email =";
-            queryAlready += email;
-            List<User> getUser = User.find(queryAlready).fetch();
-            if(getUser.size() == 0){
+            String queryAlready = "select distinct u from User";
+            //queryAlready += email;
+            //queryAlready+="'";
+            User getUser = newUser.findByEmail(email);
 
-                User newUser = new User(email,pwd,login);
+            if( getUser == null ){
                 newUser.save();
-
+                index();
             }else{
                 //L'utilisateur existe déjà
-                Error.index("Error : User already existe");
+                Error.index("Cet utilisateur existe déjà");
             }
         }else{
             //Confirmation incorrecte
-            Error.index("Error : Mot de passe incorrect");
+            Error.index("Le mot de passe et sa Confirmation ne sont pas identique");
         }
     }
 

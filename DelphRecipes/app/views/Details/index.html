@@ -3,10 +3,11 @@
 
 
 #{if currentRecipe}
+<div class="container">
 	<div class="recette">
         <div class="panel panel-warning">
             <div class="panel-heading">
-                <h3 type="button" class="panel-title">${currentRecipe.title}</h3> par ${currentRecipe.author.fullname}
+                <h3 type="button" class="panel-title calig">${currentRecipe.title}</h3> par ${currentRecipe.author.fullname}
             </div>
             <div class="panel-body" id=${currentRecipe.title}>
             <ul>
@@ -32,7 +33,7 @@
             </ul>
             <div class="panel panel-warning">
                 <div class="panel-heading">
-                <h2 type="button" class="panel-title"><center>RECETTE</center></h2>
+                <h2 type="button" class="panel-title calig"><center>Recette</center></h2>
                 </div>
                 <div class="panel-body" id=${currentRecipe.title}>
                     <ul>
@@ -85,5 +86,6 @@
 
         </div>
     </div>
+</div>
 
 #{/if}

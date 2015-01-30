@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'BrotherHood'; /*a name to be used later*/
-    src: url('/public/fonts/Brotherhood_Script.ttf'); /*URL to font*/
+    src: url('/public/fonts/Calig.ttf'); /*URL to font*/
 }
 
 .calig {
@@ -12,3 +12,21 @@
     font-family: 'BrotherHood';
     font-size: 300%;
 }
+
+body{
+	background: url('/public/images/delphlogoalphabackground.png');
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+.panel-warning .panel-heading{
+	 background-color: #f93;
+}
+
+.container-fluid{
+	background-color: #ececec;
+}
+
+/*
+	1500 x 1000
+*/

@@ -3,13 +3,15 @@
  
 #{if frontRecette}
 
+    <div class="container col-lg-12" name="recipes" id="recipes" background="@{'/public/images/delphlogo.png'}">
+    <div class="row">
     <div class="panel panel-warning col-lg-2">
             <div class="panel-heading col-lg-12">
-                Recette du moment
+                Recette aléatoire
             </div>
             <div class="panel-body">
                 <h3 class="recette-title">
-                    <a href="#">${frontRecette.title}</a>
+                    <a class="calig" href="@{Details.index(frontRecette.id)}">${frontRecette.title}</a>
                 </h3>
             </div>
     </div>
@@ -17,8 +19,9 @@
 #{/if}
 
     #{if olderRecettes}
-
-        <div class="panel panel-warning col-lg-8">
+    <div class="container col-lg-12" name="recipes" id="recipes" background="@{'/public/images/delphlogo.png'}">
+    <div class="row">
+        <div class="panel panel-warning col-lg-offset-2 col-lg-8">
             <div class="panel-heading col-lg-12">
                 <h3 class="panel-title"><center>Les 5 dernières recettes consultées</center></h3>
             </div>
@@ -29,7 +32,7 @@
                     <div class="recette">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                <h3 type="button" class="panel-title" data-toggle="collapse" data-target=#${oldRecette.title}>${oldRecette.title}</h3> par ${oldRecette.author.fullname}
+                                <h3 type="button" class="panel-title calig-title" data-toggle="collapse" data-target=#${oldRecette.title}>${oldRecette.title}</h3> par ${oldRecette.author.fullname}
                             </div>
                             <div class="panel-body collapse out" id=${oldRecette.title}>
                                 <ul>                                
@@ -63,6 +66,8 @@
             </div>
         </div>
     #{/if}
+    </div>
+</div>
 
  
 #{else}

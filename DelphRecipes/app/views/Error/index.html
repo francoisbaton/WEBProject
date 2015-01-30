@@ -2,5 +2,18 @@
 #{set title:'Home' /}
  
  #{if errorMessage}
- 	${errorMessage}
+ <div class="container">
+ 	<div class="panel panel-danger">
+  		<div class="panel-heading">
+    		<h3 class="panel-title"><center><span class="glyphicon glyphicon-alert"> Erreur </span></center></h3>
+  		</div>
+  		<div class="panel-body">
+ 			Une erreur est survenue pour les raisons suivantes :
+ 			<br>
+ 			${errorMessage}
+ 			<br>
+  		<a href="@{Application.index()}">Retour au menu principal</a>
+  		</div>
+	</div>
+</div>
  #{/if}
