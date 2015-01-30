@@ -7,7 +7,6 @@ import java.util.*;
 
 import models.*;
 
-@Check("admin")
 @With(Secure.class)
 public class RecettesAdmin extends Controller {
 	
