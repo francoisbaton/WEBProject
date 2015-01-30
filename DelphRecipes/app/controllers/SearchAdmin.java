@@ -20,10 +20,9 @@ public class SearchAdmin extends Controller {
      public static void index(String content) {
 		String usermail = Security.connected();
 		User currentUser = User.findByEmail(usermail);
-        //render(content);
-        String contentOut = content;
+        
 
-        render(contentOut,currentUser);
+        render(currentUser);
     }
 
 }

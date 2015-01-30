@@ -1,0 +1,89 @@
+#{extends 'admin.html' /}
+#{set title:'Home' /}
+
+
+#{if currentRecipe}
+	<div class="recette">
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 type="button" class="panel-title">${currentRecipe.title}</h3> par ${currentRecipe.author.fullname}
+            </div>
+            <div class="panel-body" id=${currentRecipe.title}>
+            <ul>
+                <li>Difficulte : 
+                    #{if currentRecipe.difficulte == 1}
+                        <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                            #{/if}
+                            #{elseif currentRecipe.difficulte == 2}
+                                <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                            #{/elseif}
+                            #{elseif currentRecipe.difficulte == 3}
+                                <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                            #{/elseif}
+                            #{else}
+                            #{/else}
+                </li>
+                <li>Prix : ${currentRecipe.prix} </li>
+                <li>Temps de préparation : ${currentRecipe.preparation} </li>
+                <li>Temps de cuisson : ${currentRecipe.cuisson} </li>
+            </ul>
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                <h2 type="button" class="panel-title"><center>RECETTE</center></h2>
+                </div>
+                <div class="panel-body" id=${currentRecipe.title}>
+                    <ul>
+                        <li>Catégorie :  ${currentRecipe.categorie}</li>
+                        <li>Ingrédients : ${currentRecipe.listIng}</li>
+                        <li>${currentRecipe.content.nl2br()}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#postCom">Laisser un commentaire</button>
+
+            #{if currentRecipe.comments}
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#commentaires">Voir les commentaires (${currentRecipe.comments.size()})</button>
+            #{/if}
+            #{else}
+                <button type="button" class="btn btn-default" data-toggle="collapse" data-target="#commentaires">Voir les commentaires (0)</button>
+            #{/else}
+
+            <div class="collapse out" name="postCom" id="postCom">
+                <h3>Poster un commentaire</h3>
+
+                #{form @Application.postComment(currentRecipe.id)}
+                    <p>
+                        <label for="author">Votre nom: </label>
+                        <input type="text" name="author" id="author" />
+                    </p>
+                    <p>
+                        <label for="content">Votre commentaire: </label>
+                        <textarea name="content" id="content"></textarea>
+                    </p>
+                    <p>
+                        <input type="submit" value="Envoyer" />
+                    </p>
+                #{/form}
+                
+            </div>
+
+            <div class="collapse out" name="commentaires" id="commentaires" >
+            #{if currentRecipe.comments}
+                
+                    #{list items:currentRecipe.comments, as:'com'}
+                        <h3> ${com.author} </h3> le ${com.postedAt}
+                        <div name="contenuCom">
+                        ${com.content}
+                        </div>
+                    #{/list}
+            #{/if}
+            </div>
+
+        </div>
+    </div>
+
+#{/if}
