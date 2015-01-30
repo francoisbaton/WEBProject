@@ -20,7 +20,7 @@ public class Entree extends Controller {
 
   		List<Recette> olderRecettes = Recette.find("select distinct r from Recette r where r.categorie = ?",
             "Entree").fetch();
-
+		
         render(olderRecettes);
         
     }

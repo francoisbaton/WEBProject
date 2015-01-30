@@ -1,0 +1,59 @@
+#{extends 'admin.html' /}
+
+
+
+    #{if olderRecettes}
+
+        <div class="panel panel-warning col-lg-8">
+            
+            <div class="panel-body">
+                <br/>
+                #{list items:olderRecettes, as:'oldRecette'}
+                
+                    <div class="recette">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 type="button" class="panel-title calig-title" data-toggle="collapse" data-target=#${oldRecette.title}>${oldRecette.title}</h3> par ${oldRecette.author.fullname}
+                            </div>
+                            <div class="panel-body collapse out" id=${oldRecette.title}>
+                                <ul>                                
+                                    <li>Difficulte : 
+                                        #{if oldRecette.difficulte == 1}
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                        #{/if}
+                                        #{elseif oldRecette.difficulte == 2}
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                        #{/elseif}
+                                        #{elseif oldRecette.difficulte == 3}
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                            <span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+                                        #{/elseif}
+                                        #{else}
+                                        #{/else}
+                                    </li>
+                                    <li>Prix : ${oldRecette.prix} </li>
+                                    <li>Temps de préparation : ${oldRecette.preparation} min</li>
+                                    <li>Temps de cuisson : ${oldRecette.cuisson} min</li>
+                                    <li><a href="@{Details.index(oldRecette.id)}">Voir la recette plus en details</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+                #{/list}
+				<button type="button" align="right" class="btn btn-default">Poster une nouvelle recette</button>
+				
+            </div>
+
+        </div>
+    #{/if}
+    </div>
+
+
+#{else}
+    <div class="empty">
+        There is currently nothing to read here.
+    </div>
+#{/else}
